@@ -284,42 +284,40 @@ export default function Home() {
         }}
       />
 
-      {/* Floating Active WhatsApp Widget with High-Contrast White Text */}
+      {/* Floating Circular WhatsApp Button - Simple, Clean & Responsive */}
       <a
         href={siteConfig.contact.whatsappPrimaryUrl}
         target="_blank"
         rel="noreferrer"
         aria-label="Agendar consulta por WhatsApp"
-        className="fixed bottom-6 right-6 z-50 inline-flex items-center gap-3 rounded-full border border-white/20 bg-[#1d4ed8] px-6 py-4 text-sm font-semibold !text-white hover:!text-white shadow-[0_24px_50px_-8px_rgba(29,78,216,0.4)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#0f2240] active:scale-95"
+        className="fixed bottom-6 right-6 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-[#25d366] hover:bg-[#20ba5a] shadow-[0_8px_24px_-6px_rgba(37,211,102,0.45)] transition-all duration-300 hover:-translate-y-1.5 hover:scale-105 active:scale-95"
       >
-        <span className="relative flex h-3 w-3">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-300 opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
-        </span>
-        <span className="!text-white font-bold tracking-wide">Citas por WhatsApp</span>
+        {/* Pulsing Outer Ripple Effect */}
+        <span className="absolute inset-0 rounded-full bg-[#25d366] opacity-40 animate-ping -z-10" />
+        <img src="/whatsapp.svg" alt="WhatsApp" className="h-6 w-6 select-none" />
       </a>
 
       {/* Header / Sticky Glass Navigation with Sliding Underline Links */}
-      <header className="glass-header section-shell mt-4 rounded-full px-6 py-4">
-        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <div className="flex items-center gap-3">
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#1d4ed8] text-white">
+      <header className="glass-header section-shell mt-4 rounded-3xl md:rounded-full px-4 md:px-6 py-3.5">
+        <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center gap-2.5 shrink-0">
+            <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#1d4ed8] text-white shrink-0">
               <svg className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 7a3 3 0 11-6 0 3 3 0 016 0zm-1.5 6l-3.5 3.5m-2 2L5 20v-2h2v-2h1.5" />
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 7a3 3 0 116 0 3 3 0 01-6 0zm1.5 6l3.5 3.5m2 2l3 3v-2h-2v-2h-1.5" />
               </svg>
             </span>
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#2563eb]">
+              <p className="text-[8px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-[#2563eb]">
                 Salud Comunitaria
               </p>
-              <h2 className="text-sm font-bold text-[#0f2240]">
-                Dispensario La Candelaria
+              <h2 className="text-xs md:text-sm font-bold text-[#0f2240] leading-tight max-w-[160px] sm:max-w-none whitespace-normal">
+                Dispensario Nuestra Señora de la Candelaria
               </h2>
             </div>
           </div>
 
-          <nav className="flex items-center gap-6 text-xs font-bold uppercase tracking-[0.12em] text-[#475569]">
+          <nav className="flex items-center gap-4 md:gap-6 text-[10px] md:text-xs font-bold uppercase tracking-[0.1em] text-[#475569] overflow-x-auto no-scrollbar whitespace-nowrap py-1">
             <a className="nav-link hover:text-[#1d4ed8]" href="#especialidades">
               Especialidades
             </a>
