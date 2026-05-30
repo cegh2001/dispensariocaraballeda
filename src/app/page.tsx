@@ -50,17 +50,17 @@ function BrainIcon() {
 
 const specialtyExplorer = [
   {
-    name: "Ginecología y Obstetricia",
+    name: "Ginecología",
     price: "$17",
     icon: <HeartIcon />,
-    accent: "Control, prevención y acompañamiento prenatal integral",
-    description: "Espacio especializado para el cuidado de la salud femenina en todas sus etapas, enfocado en un control prenatal humanizado y ginecología preventiva.",
+    accent: "Prevención, consulta ginecológica y citología de control",
+    description: "Espacio especializado para el cuidado de la salud femenina en todas sus etapas, enfocado en la prevención, consulta ginecológica general y citologías de control.",
     doctors: [
       {
         name: "Dra. Gleisbeth Vásquez",
         schedule: "Lunes desde las 12:00 pm y viernes desde las 7:00 am",
         services: [
-          "Control prenatal integral y ecografías",
+          "Consulta ginecológica general",
           "Citologías de control anual",
           "Colposcopia y biopsia de cuello uterino",
         ],
@@ -70,8 +70,8 @@ const specialtyExplorer = [
         schedule: "Martes desde las 9:00 am",
         services: [
           "Control ginecológico preventivo",
-          "Consulta prenatal y control ecográfico",
-          "Citología y colposcopia avanzada",
+          "Citología y ecografía ginecológica",
+          "Colposcopia avanzada",
         ],
       },
     ],
@@ -298,9 +298,9 @@ export default function Home() {
       </a>
 
       {/* Header / Sticky Glass Navigation with Sliding Underline Links */}
-      <header className="glass-header section-shell mt-4 rounded-3xl md:rounded-full px-4 md:px-6 py-3.5">
-        <div className="flex items-center justify-between gap-4">
-          <div className="flex items-center gap-2.5 shrink-0">
+      <header className="glass-header section-shell mt-4 rounded-3xl md:rounded-full px-4 md:px-6 py-3.5 md:py-4">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 md:gap-4">
+          <div className="flex items-center gap-2.5 shrink-0 justify-center md:justify-start">
             <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#1d4ed8] text-white shrink-0">
               <svg className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 7a3 3 0 11-6 0 3 3 0 016 0zm-1.5 6l-3.5 3.5m-2 2L5 20v-2h2v-2h1.5" />
@@ -308,16 +308,16 @@ export default function Home() {
               </svg>
             </span>
             <div>
-              <p className="text-[8px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-[#2563eb]">
+              <p className="text-[8px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-[#2563eb] text-center md:text-left">
                 Salud Comunitaria
               </p>
-              <h2 className="text-xs md:text-sm font-bold text-[#0f2240] leading-tight max-w-[160px] sm:max-w-none whitespace-normal">
+              <h2 className="text-xs md:text-sm font-bold text-[#0f2240] leading-tight text-center md:text-left max-w-[200px] sm:max-w-none whitespace-normal">
                 Dispensario Nuestra Señora de la Candelaria
               </h2>
             </div>
           </div>
 
-          <nav className="flex items-center gap-4 md:gap-6 text-[10px] md:text-xs font-bold uppercase tracking-[0.1em] text-[#475569] overflow-x-auto no-scrollbar whitespace-nowrap py-1">
+          <nav className="flex items-center justify-center gap-5 md:gap-6 text-[10px] md:text-xs font-bold uppercase tracking-[0.1em] text-[#475569] border-t border-[#cbd5e1]/30 md:border-t-0 pt-2.5 md:pt-0 w-full md:w-auto">
             <a className="nav-link hover:text-[#1d4ed8]" href="#especialidades">
               Especialidades
             </a>
@@ -866,7 +866,7 @@ export default function Home() {
             <div>
               <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-[#b0cbf7]">Especialidades</h4>
               <ul className="mt-4 space-y-2.5 text-xs text-[#b0cbf7]">
-                <li>Ginecología y Obstetricia</li>
+                <li>Ginecología</li>
                 <li>Pediatría y Nutrición</li>
                 <li>Traumatología y Ortopedia</li>
                 <li>Medicina General</li>
