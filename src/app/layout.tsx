@@ -5,7 +5,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Dispensario Nuestra Senora de la Candelaria | Caraballeda, La Guaira",
+    default: "Dispensario Nuestra Señora de la Candelaria | Caraballeda, La Guaira",
     template: `%s | ${siteConfig.shortName}`,
   },
   description: siteConfig.description,
@@ -19,17 +19,26 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Dispensario Nuestra Senora de la Candelaria | Caraballeda, La Guaira",
+    title: "Dispensario Nuestra Señora de la Candelaria | Caraballeda, La Guaira",
     description: siteConfig.description,
     url: siteConfig.url,
     siteName: siteConfig.name,
     locale: siteConfig.locale,
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Dispensario Nuestra Señora de la Candelaria - Caraballeda",
+      },
+    ],
   },
   twitter: {
-    card: "summary",
-    title: "Dispensario Nuestra Senora de la Candelaria | Caraballeda, La Guaira",
+    card: "summary_large_image",
+    title: "Dispensario Nuestra Señora de la Candelaria | Caraballeda, La Guaira",
     description: siteConfig.description,
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,

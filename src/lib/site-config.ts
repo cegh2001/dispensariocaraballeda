@@ -13,10 +13,10 @@ const latitude = 10.609075;
 const longitude = -66.847155;
 
 export const siteConfig = {
-  name: "Dispensario Nuestra Senora de la Candelaria",
+  name: "Dispensario Nuestra Señora de la Candelaria",
   shortName: "Dispensario Candelaria",
   description:
-    "Dispensario en Caraballeda, La Guaira, Venezuela, con pediatria, nutricion, medicina general, traumatologia, ginecologia y psicologia. Horarios, precios, mapa y WhatsApp directo.",
+    "Dispensario en Caraballeda, La Guaira, Venezuela, con pediatría, nutrición, medicina general, traumatología, ginecología y psicología. Horarios, precios, mapa y WhatsApp directo.",
   url: normalizedSiteUrl,
   host: new URL(normalizedSiteUrl).host,
   locale: "es_VE",
@@ -48,7 +48,7 @@ export const siteConfig = {
     instagram: "https://www.instagram.com/candelaria23057?igsh=enZoM2h1YnFkaHpn",
   },
   location: {
-    reference: "Bajada de los Indios, bajando desde la Iglesia Nuestra Senora de La Candelaria.",
+    reference: "Bajada de los Indios, bajando desde la Iglesia Nuestra Señora de La Candelaria.",
     streetAddress: "Calle Real, Caraballeda 1165",
     locality: "Caraballeda",
     region: "La Guaira",
@@ -58,7 +58,7 @@ export const siteConfig = {
     directionsUrl: `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}`,
   },
   organization: {
-    legalName: "Fundacion San Pedro Apostol / Dispensario Caritas",
+    legalName: "Fundación San Pedro Apóstol / Dispensario Cáritas",
     taxId: "J-00164776-7",
     priceRange: "$15-$17",
   },
