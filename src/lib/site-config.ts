@@ -9,10 +9,8 @@ const normalizedSiteUrl = resolvedSiteUrl.endsWith("/")
   ? resolvedSiteUrl.slice(0, -1)
   : resolvedSiteUrl;
 
-const locationQuery =
-  "Iglesia Nuestra Senora de La Candelaria Caraballeda La Guaira Venezuela";
-
-const encodedLocationQuery = encodeURIComponent(locationQuery);
+const latitude = 10.609075;
+const longitude = -66.847155;
 
 export const siteConfig = {
   name: "Dispensario Nuestra Senora de la Candelaria",
@@ -51,13 +49,13 @@ export const siteConfig = {
   },
   location: {
     reference: "Bajada de los Indios, bajando desde la Iglesia Nuestra Senora de La Candelaria.",
-    streetAddress: "Bajada de los Indios",
+    streetAddress: "Calle Real, Caraballeda 1165",
     locality: "Caraballeda",
     region: "La Guaira",
     country: "VE",
-    mapEmbedUrl: `https://www.google.com/maps?q=${encodedLocationQuery}&z=17&output=embed`,
-    mapPlaceUrl: `https://www.google.com/maps/search/?api=1&query=${encodedLocationQuery}`,
-    directionsUrl: `https://www.google.com/maps/dir/?api=1&destination=${encodedLocationQuery}`,
+    mapEmbedUrl: `https://www.google.com/maps?q=${latitude},${longitude}&z=17&output=embed`,
+    mapPlaceUrl: `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`,
+    directionsUrl: `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}`,
   },
   organization: {
     legalName: "Fundacion San Pedro Apostol / Dispensario Caritas",
