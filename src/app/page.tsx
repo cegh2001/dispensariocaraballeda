@@ -62,7 +62,6 @@ const specialtyExplorer = [
         services: [
           "Consulta ginecológica general",
           "Citologías de control anual",
-          "Colposcopia y biopsia de cuello uterino",
         ],
       },
       {
@@ -71,7 +70,6 @@ const specialtyExplorer = [
         services: [
           "Control ginecológico preventivo",
           "Citología y ecografía ginecológica",
-          "Colposcopia avanzada",
         ],
       },
     ],
