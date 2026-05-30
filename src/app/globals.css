@@ -1,1 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
+
+:root {
+	--canvas: #f6f0e8;
+	--surface: #fffaf4;
+	--mist: #dfe9e2;
+	--sage: #9eb8a8;
+	--candelaria: #145a5a;
+	--deep-sea: #173336;
+	--clay: #b25d3b;
+	--sand: #dcc4a9;
+	--ink-soft: #46585a;
+	--border-soft: rgba(23, 51, 54, 0.12);
+	--shadow-soft: 0 20px 60px rgba(23, 51, 54, 0.1);
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+	background:
+		radial-gradient(circle at top left, rgba(178, 93, 59, 0.14), transparent 34%),
+		radial-gradient(circle at top right, rgba(20, 90, 90, 0.16), transparent 30%),
+		linear-gradient(180deg, #f8f3ec 0%, #f6f0e8 42%, #f2ece4 100%);
+	color: var(--deep-sea);
+	font-family: "Manrope", sans-serif;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+::selection {
+	background: rgba(20, 90, 90, 0.18);
+}
+
+.font-display {
+	font-family: "Fraunces", serif;
+}
+
+.section-shell {
+	width: min(1180px, calc(100% - 2rem));
+	margin-inline: auto;
+}
+
+.soft-card {
+	background: rgba(255, 250, 244, 0.88);
+	border: 1px solid var(--border-soft);
+	box-shadow: var(--shadow-soft);
+	backdrop-filter: blur(14px);
+}
+
+.grain-band {
+	background:
+		linear-gradient(180deg, rgba(223, 233, 226, 0.9), rgba(246, 240, 232, 0.72)),
+		radial-gradient(circle at 20% 20%, rgba(20, 90, 90, 0.08), transparent 22%);
+}
+
+.dark-panel {
+	background:
+		radial-gradient(circle at top left, rgba(220, 196, 169, 0.12), transparent 34%),
+		linear-gradient(180deg, #173336 0%, #102628 100%);
+}
+
+.hero-grid {
+	display: grid;
+	gap: 1.5rem;
+}
+
+.reveal {
+	opacity: 0;
+	transform: translateY(18px);
+	animation: rise-in 0.75s ease forwards;
+}
+
+.delay-1 {
+	animation-delay: 0.1s;
+}
+
+.delay-2 {
+	animation-delay: 0.2s;
+}
+
+.delay-3 {
+	animation-delay: 0.3s;
+}
+
+.delay-4 {
+	animation-delay: 0.4s;
+}
+
+@keyframes rise-in {
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@media (min-width: 960px) {
+	.hero-grid {
+		grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+		align-items: start;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+
+	.reveal {
+		opacity: 1;
+		transform: none;
+		animation: none;
+	}
+}
