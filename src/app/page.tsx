@@ -1,3 +1,5 @@
+import { siteConfig } from "@/lib/site-config";
+
 const specialtyCards = [
   {
     name: "Ginecologia y Obstetricia",
@@ -113,36 +115,93 @@ const contextBullets = [
   "El entorno presenta ladera moderada, muros de concreto y vegetacion densa, con escorrentias y brocales que requieren lectura cuidadosa del terreno.",
 ];
 
-const contactLinks = {
-  appointmentMessage:
-    "Hola, quiero agendar una cita en el Dispensario Nuestra Senora de la Candelaria para la especialidad de ",
-  whatsappAppointments: "https://wa.me/584140424961?text=Hola%2C%20quiero%20agendar%20una%20cita%20en%20el%20Dispensario%20Nuestra%20Senora%20de%20la%20Candelaria%20para%20la%20especialidad%20de%20",
-  whatsappFloating: "https://wa.me/584242696131?text=Hola%2C%20quiero%20informacion%20sobre%20el%20Dispensario%20Nuestra%20Senora%20de%20la%20Candelaria.",
-  phoneLink: "tel:+584242696131",
-  instagram: "https://www.instagram.com/candelaria23057?igsh=enZoM2h1YnFkaHpn",
-};
+const arrivalSteps = [
+  "Usa como referencia principal la Iglesia Nuestra Senora de La Candelaria, en la plaza historica de Caraballeda.",
+  "Desde ese punto, baja por la Bajada de los Indios hacia la calle principal; el dispensario se ubica en esa franja tradicional del casco central.",
+  "Si vienes en carro o moto, abre la ruta en Google Maps antes de salir porque la topografia es de ladera y la referencia visual ayuda mucho mas que una direccion plana.",
+];
 
 const quickFacts = [
   { label: "Horario general", value: "Lunes a viernes, 7:00 am a 4:00 pm" },
-  { label: "Telefono", value: "0424-2696131" },
-  { label: "WhatsApp citas", value: "0414-0424961" },
+  { label: "WhatsApp principal", value: siteConfig.contact.whatsappPrimaryDisplay },
+  { label: "WhatsApp secundario", value: siteConfig.contact.whatsappSecondaryDisplay },
   { label: "RIF", value: "J-00164776-7" },
 ];
 
+const clinicStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "MedicalClinic",
+  "@id": `${siteConfig.url}/#medical-clinic`,
+  name: siteConfig.name,
+  legalName: siteConfig.organization.legalName,
+  url: siteConfig.url,
+  description: siteConfig.description,
+  telephone: siteConfig.contact.phoneIntl,
+  taxID: siteConfig.organization.taxId,
+  priceRange: siteConfig.organization.priceRange,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: siteConfig.location.streetAddress,
+    addressLocality: siteConfig.location.locality,
+    addressRegion: siteConfig.location.region,
+    addressCountry: siteConfig.location.country,
+  },
+  areaServed: [
+    "Caraballeda",
+    "La Guaira",
+    "Venezuela",
+  ],
+  hasMap: siteConfig.location.mapPlaceUrl,
+  sameAs: [siteConfig.social.instagram],
+  openingHours: siteConfig.hours,
+  medicalSpecialty: [
+    "Pediatria",
+    "Nutricion",
+    "Medicina General",
+    "Traumatologia y Ortopedia",
+    "Ginecologia y Obstetricia",
+    "Psicologia Clinica",
+  ],
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      contactType: "customer support",
+      telephone: siteConfig.contact.phoneIntl,
+      availableLanguage: ["es"],
+      areaServed: "VE",
+    },
+    {
+      "@type": "ContactPoint",
+      contactType: "appointments",
+      telephone: siteConfig.contact.whatsappSecondaryIntl,
+      availableLanguage: ["es"],
+      areaServed: "VE",
+    },
+  ],
+};
+
 export default function Home() {
   return (
-    <main className="pb-24 text-[var(--deep-sea)]">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(clinicStructuredData),
+        }}
+      />
+
+      <main className="pb-24 text-[var(--deep-sea)]">
       <a
-        href={contactLinks.whatsappFloating}
+        href={siteConfig.contact.whatsappPrimaryUrl}
         target="_blank"
         rel="noreferrer"
-        aria-label="Escribir por WhatsApp"
+        aria-label="Escribir al WhatsApp principal"
         className="fixed bottom-5 right-5 z-50 inline-flex items-center gap-3 rounded-full border border-white/20 bg-[var(--candelaria)] px-5 py-3 text-sm font-semibold text-white shadow-[0_20px_45px_rgba(20,90,90,0.35)] transition hover:-translate-y-0.5 hover:bg-[var(--deep-sea)]"
       >
         <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/16 text-base">
           WS
         </span>
-        0424-2696131
+        {siteConfig.contact.whatsappPrimaryDisplay}
       </a>
 
       <section className="section-shell pt-5 md:pt-8">
@@ -192,15 +251,15 @@ export default function Home() {
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
-                href={contactLinks.whatsappAppointments}
+                href={siteConfig.contact.whatsappPrimaryUrl}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center justify-center rounded-full bg-[var(--candelaria)] px-6 py-3.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[var(--deep-sea)]"
               >
-                Agendar por WhatsApp
+                Agendar por WhatsApp principal
               </a>
               <a
-                href={contactLinks.phoneLink}
+                href={siteConfig.contact.phoneHref}
                 className="inline-flex items-center justify-center rounded-full border border-[var(--deep-sea)]/15 bg-white/70 px-6 py-3.5 text-sm font-semibold text-[var(--deep-sea)] transition hover:-translate-y-0.5 hover:border-[var(--candelaria)] hover:text-[var(--candelaria)]"
               >
                 Llamar al dispensario
@@ -250,16 +309,16 @@ export default function Home() {
                   Direccion
                 </p>
                 <p className="mt-2 text-sm font-semibold text-[var(--deep-sea)]">
-                  Caraballeda, La Guaira · Calle/Bajada de los Indios
+                  Caraballeda, La Guaira · {siteConfig.location.streetAddress}
                 </p>
               </div>
               <div className="rounded-[26px] bg-[var(--deep-sea)] px-5 py-5 text-white">
                 <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--sand)]">
-                  Mision practica
+                  SEO local y referencia real
                 </p>
                 <p className="mt-2 text-sm leading-7 text-white/82">
-                  Facilitar el acceso a consulta, orientacion y seguimiento con un
-                  tarifario claro y horarios visibles.
+                  El sitio ahora prioriza la busqueda local para Caraballeda, La Guaira,
+                  Venezuela, y usa la iglesia como punto de referencia de llegada.
                 </p>
               </div>
             </div>
@@ -430,24 +489,84 @@ export default function Home() {
                 </div>
               ))}
             </div>
+
+            <div className="mt-6 rounded-[26px] border border-[var(--deep-sea)]/8 bg-white/70 px-5 py-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--clay)]">
+                Punto de referencia
+              </p>
+              <p className="mt-2 text-sm leading-7 text-[var(--ink-soft)] md:text-base">
+                {siteConfig.location.reference}
+              </p>
+            </div>
           </article>
 
           <article className="reveal delay-2 rounded-[34px] border border-[var(--border-soft)] bg-white/72 px-6 py-7 shadow-[0_24px_70px_rgba(23,51,54,0.08)] md:px-8">
             <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[var(--clay)]">
-              Lectura de terreno
+              Mapa y ruta
             </p>
-            <div className="mt-5 space-y-4 text-sm leading-7 text-[var(--ink-soft)] md:text-base">
-              <p>
-                La inspeccion visual describe pendiente moderada, restos de brocales,
-                maleza crecida, vegetacion densa, muros perimetrales y tendido electrico
-                aereo. Eso refuerza la necesidad de una comunicacion simple sobre acceso,
-                horarios y referencia urbana.
-              </p>
-              <p>
-                Tambien se observan cunetas parcialmente obstruidas, sedimentos y algunos
-                desechos dispersos en margenes de via, datos utiles para futuras piezas de
-                gestion comunitaria o expediente institucional.
-              </p>
+            <h3 className="mt-4 text-2xl font-semibold text-[var(--deep-sea)] md:text-3xl">
+              Abre la referencia, ubicate rapido y llega con menos friccion.
+            </h3>
+
+            <div className="mt-5 overflow-hidden rounded-[28px] border border-[var(--deep-sea)]/10 bg-[var(--mist)]/55">
+              <iframe
+                title="Mapa del Dispensario Nuestra Senora de la Candelaria"
+                src={siteConfig.location.mapEmbedUrl}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="h-[320px] w-full border-0"
+              />
+            </div>
+
+            <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+              <a
+                href={siteConfig.location.mapPlaceUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center rounded-full bg-[var(--candelaria)] px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[var(--deep-sea)]"
+              >
+                Abrir mapa
+              </a>
+              <a
+                href={siteConfig.location.directionsUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center rounded-full border border-[var(--deep-sea)]/12 bg-white px-5 py-3 text-sm font-semibold text-[var(--deep-sea)] transition hover:-translate-y-0.5 hover:border-[var(--candelaria)] hover:text-[var(--candelaria)]"
+              >
+                Como llegar
+              </a>
+            </div>
+          </article>
+
+          <article className="soft-card reveal delay-3 rounded-[34px] px-6 py-7 md:px-8 md:py-8 lg:col-span-2">
+            <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[var(--clay)]">
+              Llegada y lectura de terreno
+            </p>
+            <div className="mt-5 grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
+              <div className="space-y-3">
+                {arrivalSteps.map((step) => (
+                  <div
+                    key={step}
+                    className="rounded-[24px] border border-[var(--deep-sea)]/8 bg-[var(--mist)]/55 px-4 py-4"
+                  >
+                    <p className="text-sm leading-7 text-[var(--ink-soft)] md:text-base">{step}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="rounded-[24px] border border-[var(--deep-sea)]/8 bg-white/68 px-5 py-5 text-sm leading-7 text-[var(--ink-soft)] md:text-base">
+                <p>
+                  La inspeccion visual describe pendiente moderada, restos de brocales,
+                  maleza crecida, vegetacion densa, muros perimetrales y tendido electrico
+                  aereo. Eso refuerza la necesidad de una comunicacion simple sobre acceso,
+                  horarios y referencia urbana.
+                </p>
+                <p className="mt-4">
+                  Tambien se observan cunetas parcialmente obstruidas, sedimentos y algunos
+                  desechos dispersos en margenes de via. Este bloque ayuda tanto al usuario
+                  final como al posicionamiento local, porque explica con texto real como se
+                  reconoce el lugar en Caraballeda.
+                </p>
+              </div>
             </div>
           </article>
         </div>
@@ -464,27 +583,28 @@ export default function Home() {
                 La cita puede empezar con un mensaje claro.
               </h2>
               <p className="mt-5 max-w-2xl text-sm leading-7 text-white/78 md:text-base">
-                Si ya sabes la especialidad que necesitas, escribe por WhatsApp con el
-                mensaje predefinido. Si necesitas orientacion general, tambien puedes
-                llamar o revisar el Instagram institucional.
+                El canal principal por WhatsApp es el {siteConfig.contact.whatsappPrimaryDisplay}.
+                El {siteConfig.contact.whatsappSecondaryDisplay} queda como respaldo
+                secundario para citas. Si ya sabes la especialidad, escribe directo;
+                si no, tambien puedes llamar o abrir la ruta en Google Maps.
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
-                  href={contactLinks.whatsappAppointments}
+                  href={siteConfig.contact.whatsappPrimaryUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-[var(--deep-sea)] transition hover:-translate-y-0.5 hover:bg-[var(--mist)]"
                 >
-                  Quiero agendar una cita
+                  Escribir al WhatsApp principal
                 </a>
                 <a
-                  href={contactLinks.instagram}
+                  href={siteConfig.location.directionsUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-[var(--sand)] hover:text-[var(--sand)]"
                 >
-                  Ver Instagram oficial
+                  Abrir ruta para llegar
                 </a>
               </div>
             </div>
@@ -492,23 +612,44 @@ export default function Home() {
             <div className="grid gap-4">
               <article className="rounded-[28px] border border-white/12 bg-white/6 px-5 py-5">
                 <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--sand)]">
-                  Telefono general
+                  WhatsApp principal
                 </p>
-                <a className="mt-2 block text-xl font-semibold" href={contactLinks.phoneLink}>
-                  0424-2696131
+                <a
+                  className="mt-2 block text-xl font-semibold"
+                  href={siteConfig.contact.whatsappPrimaryUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {siteConfig.contact.whatsappPrimaryDisplay}
                 </a>
               </article>
               <article className="rounded-[28px] border border-white/12 bg-white/6 px-5 py-5">
                 <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--sand)]">
-                  WhatsApp de citas
+                  WhatsApp secundario
                 </p>
                 <a
                   className="mt-2 block text-xl font-semibold"
-                  href={contactLinks.whatsappAppointments}
+                  href={siteConfig.contact.whatsappSecondaryUrl}
                   target="_blank"
                   rel="noreferrer"
                 >
-                  0414-0424961
+                  {siteConfig.contact.whatsappSecondaryDisplay}
+                </a>
+              </article>
+              <article className="rounded-[28px] border border-white/12 bg-white/6 px-5 py-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--sand)]">
+                  Telefono e Instagram
+                </p>
+                <a className="mt-2 block text-xl font-semibold" href={siteConfig.contact.phoneHref}>
+                  {siteConfig.contact.phoneDisplay}
+                </a>
+                <a
+                  className="mt-3 block text-sm font-medium text-white/78"
+                  href={siteConfig.social.instagram}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  @candelaria23057
                 </a>
               </article>
               <article className="rounded-[28px] border border-white/12 bg-white/6 px-5 py-5">
@@ -521,6 +662,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </main>
+      </main>
+    </>
   );
 }
