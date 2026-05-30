@@ -414,7 +414,7 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="mt-6 text-xs text-[#475569] bg-[#f4f7fc] p-3 rounded-xl border border-dashed border-[#cbd5e1]">
-                  RIF: J-00164776-7 · Solidario
+                  RIF: J-00164776-7
                 </div>
               </div>
             </div>
