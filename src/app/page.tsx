@@ -392,7 +392,7 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="mt-8 border-t border-white/10 pt-4 flex items-center justify-between">
-                  <span className="text-xs text-[#b0cbf7]">SEO Local la Guaira</span>
+                  <span className="hidden text-xs text-[#b0cbf7]">SEO Local la Guaira</span>
                   <span className="text-xs text-white/50">Cáritas de Venezuela</span>
                 </div>
               </div>
