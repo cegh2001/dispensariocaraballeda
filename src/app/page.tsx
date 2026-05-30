@@ -168,7 +168,7 @@ const arrivalSteps = [
   {
     title: "El Descenso",
     subtitle: "Bajada de los Indios",
-    desc: "Desde la plaza de la iglesia, bajá por la pintoresca Bajada de los Indios en dirección hacia la calle principal.",
+    desc: "Desde la plaza de la iglesia, baja por la pintoresca Bajada de los Indios en dirección hacia la calle principal.",
   },
   {
     title: "Destino",
@@ -180,7 +180,7 @@ const arrivalSteps = [
 const faqList = [
   {
     question: "¿Cómo puedo agendar una consulta médica?",
-    answer: "Podés agendar fácilmente escribiendo a nuestro WhatsApp principal o secundario. Hacé clic en cualquiera de los botones de WhatsApp de la página para iniciar un chat directo y elegir la especialidad que necesitás.",
+    answer: "Puedes agendar fácilmente escribiendo a nuestro WhatsApp principal o secundario. Haz clic en cualquiera de los botones de WhatsApp de la página para iniciar un chat directo y elegir la especialidad que necesitas.",
   },
   {
     question: "¿Tengo que pagar antes de asistir a la consulta?",
@@ -188,7 +188,7 @@ const faqList = [
   },
   {
     question: "¿Cuáles son los métodos de pago aceptados?",
-    answer: "Aceptamos efectivo (dólares o bolívares) y métodos de pago móvil locales. Para cualquier duda específica sobre los métodos de facturación, consultanos directamente vía WhatsApp antes de asistir.",
+    answer: "Aceptamos efectivo (dólares o bolívares) y métodos de pago móvil locales. Para cualquier duda específica sobre los métodos de facturación, consúltanos directamente vía WhatsApp antes de asistir.",
   },
   {
     question: "¿El dispensario cuenta con farmacia comunitaria?",
@@ -218,7 +218,7 @@ const communityBenefits = [
   },
   {
     title: "Agendamiento Ágil",
-    desc: "Coordiná directamente a través de WhatsApp tu turno sin intermediarios ni demoras.",
+    desc: "Coordina directamente a través de WhatsApp tu turno sin intermediarios ni demoras.",
     icon: (
       <svg className="h-5 w-5 text-[#1d4ed8]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
@@ -235,9 +235,9 @@ export default function Home() {
 
   useEffect(() => {
     const hour = new Date().getHours();
-    if (hour < 12) setGreeting("¡Buen día!");
-    else if (hour < 19) setGreeting("¡Buenas tardes!");
-    else setGreeting("¡Buenas noches!");
+    if (hour < 12) setGreeting("Buen día");
+    else if (hour < 19) setGreeting("Buenas tardes");
+    else setGreeting("Buenas noches");
   }, []);
 
   const toggleFaq = (index: number) => {
@@ -349,7 +349,7 @@ export default function Home() {
                 </div>
 
                 <p className="mt-8 text-lg font-bold text-[#2563eb] font-display italic">
-                  {greeting}, te damos la bienvenida.
+                  ¡{greeting}! Te damos la bienvenida.
                 </p>
 
                 <h1 className="font-display mt-4 text-4xl font-normal leading-[1.08] text-[#0f2240] md:text-6xl max-w-2xl">
@@ -358,7 +358,7 @@ export default function Home() {
 
                 <p className="mt-6 text-base md:text-lg leading-relaxed text-[#475569] max-w-2xl">
                   Un centro de salud con profunda vocación social, arraigado en la Bajada de los
-                  Indios de Caraballeda. Te ofrecemos atención humana y de calidad en especialidades clave para vos.
+                  Indios de Caraballeda. Te ofrecemos atención humana y de calidad en especialidades clave para ti.
                 </p>
               </div>
 
@@ -397,7 +397,7 @@ export default function Home() {
                 </div>
                 <div className="mt-8 border-t border-white/10 pt-4 flex items-center justify-between">
                   <span className="text-xs text-[#b0cbf7]">SEO Local la Guaira</span>
-                  <span className="text-xs text-white/50">Caritas de Venezuela</span>
+                  <span className="text-xs text-white/50">Cáritas de Venezuela</span>
                 </div>
               </div>
 
@@ -452,7 +452,7 @@ export default function Home() {
               Nuestras consultas especializadas sin rodeos.
             </h2>
             <p className="mt-4 text-base text-[#475569]">
-              Che, no andamos con rodeos ni te obligamos a escribir por chat solo para saber los costos. Elegí una especialidad para ver al instante su precio solidario, horarios y los doctores que te atenderán.
+              Te facilitamos la información de forma directa. Elige una especialidad para ver al instante su precio solidario, horarios y los doctores que te atenderán.
             </p>
           </div>
 
@@ -549,7 +549,7 @@ export default function Home() {
 
                 <div className="mt-8 pt-6 border-t border-[#cbd5e1]/30 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                   <span className="text-xs text-[#475569]">
-                    ¿Querés coordinar cita con esta especialidad?
+                    ¿Quieres coordinar una cita para esta especialidad?
                   </span>
                   <a
                     href={`${siteConfig.contact.whatsappPrimaryUrl}${encodeURIComponent(
@@ -704,10 +704,10 @@ export default function Home() {
               Preguntas Frecuentes
             </p>
             <h2 className="font-display mt-4 text-4xl leading-tight text-[#0f2240] md:text-5xl font-normal">
-              Resolvé tus dudas en un instante.
+              Resuelve tus dudas al instante.
             </h2>
             <p className="mt-4 text-base text-[#475569]">
-              Che, te dejamos las respuestas a las consultas más usuales que nos hace la gente antes de programar una cita.
+              Te presentamos las respuestas a las preguntas más frecuentes de nuestra comunidad antes de programar su cita.
             </p>
           </div>
 
@@ -749,7 +749,7 @@ export default function Home() {
                     La cita médica ideal empieza con un mensaje de apoyo.
                   </h2>
                   <p className="mt-6 text-sm md:text-base text-[#b0cbf7]/80 leading-relaxed max-w-xl">
-                    Escribinos al canal que te resulte más cómodo. Coordinamos tu atención rápidamente. Tu salud es nuestra prioridad número uno en Caraballeda.
+                    Escríbenos al canal que te resulte más cómodo. Coordinamos tu atención rápidamente. Tu salud es nuestra prioridad número uno en Caraballeda.
                   </p>
                 </div>
 
@@ -862,7 +862,7 @@ export default function Home() {
                 <li><a className="hover:text-white transition" href="#especialidades">Consultas</a></li>
                 <li><a className="hover:text-white transition" href="#como-llegar">Ubicación y Mapa</a></li>
                 <li><a className="hover:text-white transition" href="#faq">Preguntas Frecuentes</a></li>
-                <li><a className="hover:text-white transition" href="#contacto">Escribinos directo</a></li>
+                <li><a className="hover:text-white transition" href="#contacto">Escríbenos directo</a></li>
               </ul>
             </div>
             <div>
@@ -883,8 +883,34 @@ export default function Home() {
             </div>
           </div>
 
+          {/* Creador Callout Card - Libertad Creativa para la firma de Carlos González */}
+          <div className="mt-12 mb-8 p-6 rounded-2xl bg-white/5 border border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-4 transition-all duration-300 hover:bg-white/8 hover:border-white/15">
+            <div className="flex items-start gap-4">
+              <span className="p-3 rounded-xl bg-white/10 text-[#2563eb] shrink-0">
+                <svg className="h-5 w-5 text-[#b0cbf7]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+              </span>
+              <div>
+                <h4 className="text-xs font-bold text-white tracking-[0.1em] uppercase">
+                  Diseño & Desarrollo Web Profesional
+                </h4>
+                <p className="text-xs text-[#b0cbf7]/80 mt-1 leading-relaxed max-w-xl">
+                  Sitio web diseñado y programado a medida por <strong>Carlos González</strong>. ¿Desea crear, rediseñar o modernizar su sitio web comercial o institucional con esta misma calidad premium?
+                </p>
+              </div>
+            </div>
+            <a
+              href="mailto:cargonzalez0601@gmail.com?subject=Consulta%20sobre%20Dise%C3%B1o%20y%20Desarrollo%20de%20Sitio%20Web"
+              className="bg-[#2563eb] hover:bg-[#1d4ed8] !text-white text-center py-2.5 px-6 rounded-full text-xs font-bold uppercase tracking-[0.1em] transition-all duration-300 shadow-[0_4px_12px_rgba(37,99,235,0.2)] hover:-translate-y-0.5 active:scale-95 border border-transparent shrink-0"
+            >
+              Contactar al Desarrollador
+            </a>
+          </div>
+
           <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-[10px] font-bold uppercase tracking-[0.16em] text-[#b0cbf7]">
             <p>© {new Date().getFullYear()} Fundación San Pedro Apóstol. Todos los derechos reservados.</p>
+            <p>Creado por <a href="mailto:cargonzalez0601@gmail.com" className="hover:text-white transition underline">Carlos González</a> · cargonzalez0601@gmail.com</p>
             <p>RIF: J-00164776-7 · Cáritas Diocesana</p>
           </div>
         </div>
